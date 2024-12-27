@@ -2,11 +2,11 @@
 
 export default {
 	async fetch(request): Promise<Response> {
-		const targetApiBaseUrl = 'https://xblvulfnrlbhmjenqysx.supabase.co/functions/v1/scores';
+		const targetApiBaseUrl = 'https://xblvulfnrlbhmjenqysx.supabase.co';
 
 		const requestURL = new URL(request.url);
 
-		const targetUrl = new URL(requestURL.pathname + requestURL.search, targetApiBaseUrl).toString();
+		const targetUrl = new URL('functions/v1' + requestURL.pathname + requestURL.search, targetApiBaseUrl).toString();
 		console.log(`Redirected to targetUrl ${targetUrl}`);
 
 		const headers = new Headers();
@@ -14,7 +14,7 @@ export default {
 		const res = new Response(null, {
 			status: 301,
 			headers: {
-				'Cache-Control': 'max-age=3600',
+				// 'Cache-Control': 'max-age=3600',
 				'access-control-allow-origin': '*',
 				Location: targetUrl,
 			},
