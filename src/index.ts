@@ -12,7 +12,7 @@ export default {
 		const headers = new Headers();
 		headers.set('Cache-Control', 'max-age=3600');
 		const res = new Response(null, {
-			status: 301,
+			status: 307,
 			headers: {
 				// 'Cache-Control': 'max-age=3600',
 				'access-control-allow-origin': '*',
