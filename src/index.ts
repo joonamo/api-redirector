@@ -15,6 +15,7 @@ export default {
 			status: 301,
 			headers: {
 				'Cache-Control': 'max-age=3600',
+				'access-control-allow-origin': '*',
 				Location: targetUrl,
 			},
 		});
