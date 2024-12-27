@@ -27,7 +27,7 @@ export default {
 		const res = new Response(null, {
 			status: 307,
 			headers: {
-				// 'Cache-Control': 'max-age=3600',
+				'Cache-Control': 'max-age=3600',
 				'access-control-allow-origin': '*',
 				Location: targetUrl,
 			},
