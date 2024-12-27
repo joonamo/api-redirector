@@ -2,6 +2,19 @@
 
 export default {
 	async fetch(request): Promise<Response> {
+		if (request.method === 'OPTIONS') {
+      // Handle OPTIONS directly, even if the resource has "moved", browsers don't follow redirects for OPTIONS
+      return new Response(null, {
+        status: 204,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Max-Age': '86400',
+        },
+      });
+    }
+
 		const targetApiBaseUrl = 'https://xblvulfnrlbhmjenqysx.supabase.co';
 
 		const requestURL = new URL(request.url);
